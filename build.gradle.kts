@@ -21,6 +21,7 @@ group = "selenium-runner"
 version = "0.1"
 
 apply {
+  plugin("java")
   plugin("kotlin")
 }
 
