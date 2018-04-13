@@ -10,12 +10,12 @@ import org.deeprim.selenium.driver.IDriverPoolInternal
 /**
  * @author Dmytro Primshyts
  */
-class SeleniumExecutor(
+class SeleniumRunner(
     poolSize: Int
-) : ISeleniumExecutor,
+) : ISeleniumRunner,
     IDriverPoolInternal by DriverPool(poolSize) {
 
-  private val threadPool = newFixedThreadPoolContext(poolSize, "Selenium Executor Pool")
+  private val threadPool = newFixedThreadPoolContext(poolSize, "Selenium Runner Pool")
 
   override fun execute(action: ISeleniumActionContext.() -> Unit) = async(threadPool) {
     val myDriver = driver

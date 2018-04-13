@@ -45,14 +45,10 @@ val kotlinCoroutinesVersion: String by extra
 dependencies {
   compile(kotlin("stdlib", kotlinVersion))
   compile(kotlin("stdlib-jdk8", kotlinVersion))
-  compile(kotlin("runtime", kotlinVersion))
-  compile(kotlin("reflect", kotlinVersion))
-  compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion")
-
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion")
   compile("org.seleniumhq.selenium:selenium-chrome-driver:3.11.0")
 
   compile("io.github.bonigarcia:webdrivermanager:1.7.1")
-  compile("com.codeborne:selenide:4.11.1")
 }
 
 tasks.withType<KotlinCompile> {

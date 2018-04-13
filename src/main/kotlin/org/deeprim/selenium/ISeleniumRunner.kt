@@ -6,7 +6,7 @@ import org.deeprim.selenium.action.ISeleniumActionContext
 /**
  * @author Dmytro Primshyts
  */
-interface ISeleniumExecutor {
+interface ISeleniumRunner {
 
   /**
    * Execute an action within [ISeleniumActionContext].
@@ -16,7 +16,7 @@ interface ISeleniumExecutor {
   fun execute(action: ISeleniumActionContext.() -> Unit) : Deferred<Unit>
 
   /**
-   * Destroy current [ISeleniumExecutor].
+   * Destroy current [ISeleniumRunner].
    * All 'in progress' actions will be discarded.
    * Used resources freed.
    * The executor can not be reused after destroy.
@@ -26,17 +26,17 @@ interface ISeleniumExecutor {
   companion object {
 
     /**
-     * Create instance of selenium executor.
+     * Create instance of selenium runner.
      *
-     * @param maxParallelActions max parallel
-     * actions allowed within current executor (2 by `default`)
+     * @param poolSize max parallel
+     * actions allowed within current runner (2 by `default`)
      *
-     * @return instance of selenium executor
+     * @return instance of selenium runner
      */
     fun create(
-        maxParallelActions: Int = 2
-    ): ISeleniumExecutor {
-      return SeleniumExecutor(maxParallelActions)
+        poolSize: Int = 2
+    ): ISeleniumRunner {
+      return SeleniumRunner(poolSize)
     }
   }
 
