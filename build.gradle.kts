@@ -48,7 +48,7 @@ dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion")
   compile("org.seleniumhq.selenium:selenium-chrome-driver:3.11.0")
 
-  compile("io.github.bonigarcia:webdrivermanager:1.7.1")
+  compile("io.github.bonigarcia:webdrivermanager:2.2.1")
 }
 
 tasks.withType<KotlinCompile> {
